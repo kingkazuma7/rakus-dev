@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group([], function () {
+Route::middleware('auth:api')->group(function () {
     // 投稿一覧表示
     Route::get('/posts', [PostController::class, 'index']);
     // 投稿表示
