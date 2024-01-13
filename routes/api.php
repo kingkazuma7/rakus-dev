@@ -19,13 +19,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->group(function () {
-    // 投稿作成
-    Route::post('/posts/create', [PostController::class, 'create']);
+Route::group([], function () {
     // 投稿一覧表示
     Route::get('/posts', [PostController::class, 'index']);
     // 投稿表示
     Route::get('/posts/{id}', [PostController::class, 'show']);
+    // 投稿作成
+    Route::post('/posts/create', [PostController::class, 'create']);
     // 投稿編集
     Route::patch('/posts/update/{id}', [PostController::class, 'update']);
     // 投稿削除
